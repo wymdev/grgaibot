@@ -1,0 +1,32 @@
+ # If the 'Submit' button is clicked
+# if st.button("Submit"):
+#     if not user_input.strip():
+#         st.error("Please provide input.")
+#     else:
+#         try:
+#             # This example uses text-davinci-003 by default; feel free to change if desired
+#             llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="text-davinci-003"))
+
+#             # Configure prompt parameters and initialise helper
+#             max_input_size = 4096
+#             num_output = 256
+#             max_chunk_overlap = 0.2
+
+#             prompt_helper = PromptHelper(max_input_size, num_output, max_chunk_overlap)
+
+#             # Load documents from the 'data' directory
+#             documents = SimpleDirectoryReader('data').load_data()
+#             service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor, prompt_helper=prompt_helper)
+#             index = VectorStoreIndex.from_documents(documents, service_context=service_context)
+
+#             # Query the index
+#             response = index.as_query_engine().query(user_input)
+
+#             # Display user input and bot response in the chat
+#             add_chat_message("User", user_input)
+#             add_chat_message("Bot", response, is_bot=True)
+
+#             # Display the chat in the UI
+#             display_chat()
+#         except Exception as e:
+#             st.error(f"An error occurred: {e}")
